@@ -1,0 +1,133 @@
+@import "../src/mixins.scss";
+
+.mobile-view {
+  display: none;
+}
+
+.desktop-view {
+  display: flex;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Nunito";
+  font-weight: 400;
+}
+
+body {
+  font-family: "Nunito";
+  font-weight: 400;
+  background-color: $bg-color;
+}
+
+////Achtung: Overflow hidden ist hier notwendig für die SlideIn Animation der Thread Bar, beim responsive müssten wir das evtl. ausklammern, damit man potentielle overflow erkennt.
+html,
+body {
+  overflow-x: hidden;
+}
+
+.d-none {
+  display: none;
+}
+
+.hover-button-class2 {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  position: absolute;
+  z-index: 11;
+  top: 16px;
+  right: 16px;
+  svg {
+    fill: #000000;
+    stroke-width: 1;
+  }
+
+  svg path {
+    transition: all ease-in-out 150ms;
+  }
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all ease-in-out 150ms;
+
+  &:hover {
+    background-color: $bg-color;
+  }
+
+  &:hover svg path {
+    fill: $purple2;
+    stroke-width: 0.6;
+    stroke: $purple2;
+  }
+}
+
+.btn-primary {
+  width: 164px;
+  height: 49px;
+  background-color: $purple-bg-reaction;
+  color: $white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  &:hover {
+    background-color: $purple2;
+  }
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-weight: 400;
+  font-style: normal;
+  src: url("assets/fonts/Nunito-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-weight: 500;
+  font-style: normal;
+  src: url("assets/fonts/Nunito-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-weight: 600;
+  font-style: normal;
+  src: url("assets/fonts/Nunito-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-weight: 700;
+  font-style: normal;
+  src: url("assets/fonts/Nunito-Bold.ttf") format("truetype");
+}
+
+@media (max-width: 1048px) {
+  .mobile-view {
+    display: flex;
+  }
+
+  .desktop-view {
+    display: none;
+  }
+}

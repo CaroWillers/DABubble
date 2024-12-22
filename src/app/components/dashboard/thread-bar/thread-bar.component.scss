@@ -1,0 +1,251 @@
+@import "../../../../mixins.scss";
+@import "../chat/chat.component.scss";
+
+html,
+body {
+  height: 100%;
+}
+.main-threadbar-class {
+  //For the container media query
+  container-type: inline-size;
+
+  width: 100%;
+  min-width: 320px;
+  background-color: $white;
+  border-radius: 30px;
+
+  display: flex;
+  position: relative;
+  height: 100%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thread-head-class {
+  // height: 88px;
+font-size: 18px;
+  p {
+    color: $purple2;
+  }
+}
+
+.thread-answers-seperator-class {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+
+  p {
+    margin: 0px 0px 32px 16px;
+    color: $light-purple;
+    white-space: nowrap;
+  }
+
+  div {
+    margin: 0px 16px 32px 0px;
+    width: 60%;
+    height: 1px;
+    background-color: $light-purple;
+  }
+}
+
+.thread-date-separator {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  height: 1px;
+}
+
+.thread-date-separator::before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: $light-purple;
+}
+
+.hover-button-class2 {
+  position: absolute;
+  z-index: 11;
+  top: 20px;
+  right: 16px;
+  svg {
+    fill: #000000;
+    stroke-width: 1;
+  }
+
+  svg path {
+    transition: all ease-in-out 150ms;
+  }
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all ease-in-out 150ms;
+
+  &:hover {
+    background-color: $bg-color;
+  }
+
+  &:hover svg path {
+    fill: $purple2;
+    stroke-width: 0.6;
+    stroke: $purple2;
+  }
+}
+
+.edit-thread-popup {
+  position: absolute;
+  top: 46px; /* Adjust based on your layout */
+  left: 0px;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  width: auto;
+  background: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  z-index: 12;
+  border-radius: 16px 16px 16px 16px;
+
+  p {
+    padding: 8px;
+    border-radius: 48px 48px;
+    white-space: nowrap;
+    transition: background-color 200ms ease-in-out;
+    display: inline-block; /* Ensures it remains inline but respects padding */
+    width: 200px; /* Prevent resizing */
+    text-align: center;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+    &:hover {
+      font-weight: 700; /* Still changes weight */
+      color: $purple1;
+      background-color: $bg-color;
+    }
+  }
+}
+
+///Attachment styling
+///Image Attachment
+
+.attached-image {
+  max-width: 96px;
+  max-height: 96px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 72px;
+  left: 30px;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+}
+.is-this-necessary-class {
+  display: flex;
+  height: 100%;
+}
+
+
+
+@media only screen and (max-width: 650px) {
+  .hover-button-class2{
+    top: 16px;
+  }
+}
+
+
+@container (max-width: 432px) {
+  .edit-popup {
+    left: 6px;
+    width: 220px;
+    border-radius: 16px 0px 16px 16px;
+  
+    p {
+      width: 200px; /* Prevent resizing */
+      text-align: center;
+    }
+  }
+
+  .current-user-class {
+    .thread-info-class {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+  
+  .other-user-class {
+    .thread-info-class {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+
+  .head-avatars-class {
+    display: none;
+  }
+  .add-avatar-button-class{
+    margin: 0px 8px 0px 0px;
+  }
+
+  .channel-head-class{
+    padding: 16px 8px;
+  }
+
+  .current-user-class {
+    padding: 0px 8px 0px 8px;
+    .messages-text-div-class {
+      margin: 0px 12px 0px 0px;
+    }
+  }
+
+  .other-user-class {
+      padding: 0px 8px 0px 8px;
+    
+    .messages-text-div-class {
+      margin: 0px 0px 0px 12px;
+    }
+  }
+
+  .hover-users-reactions-class {
+    left: 0px;
+    padding: 12px 4px 20px 4px;
+  }
+   
+ 
+
+
+  .empty-chat-head-class {
+    textarea{
+      height: 64px;
+  }
+  }
+}
+@container (max-width: 305px) {
+  .head-name-class {
+    padding: 8px 12px;
+    max-width: 200px;
+
+    svg{
+      display: none;
+    }
+    span{
+      text-overflow: ellipsis;
+      overflow: hidden; 
+      height: 1.2em; 
+      white-space: nowrap;
+    }
+  }
+}

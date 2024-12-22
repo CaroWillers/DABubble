@@ -1,0 +1,54 @@
+<header *ngIf="!isMobileView" class="desktop-header">
+  <div class="logo">
+    <img src="assets/logos/logo-DABubble.svg" alt="Logo">
+  </div>
+  <div *ngIf="!isMobileView" class="search-bar-desktop">
+    <input type="text" placeholder="Devspace durchsuchen" (click)="profileService.preventDefault($event)"
+      (keyup)="searchService.onSearch()" [(ngModel)]="searchService.searchQuery" />
+    <img src="assets/icons/search-grey.svg" alt="Search Icon" class="search-icon">
+
+    <!-- Search Results -->
+    @if (searchService.searchQuery.length > 0) {
+    <app-search></app-search>
+    }
+
+  </div>
+  <!-- Haupt Profile Dropdown -->
+  <div class="user-profile">
+    <span>{{this.authService.currentUserData.displayName}}</span>
+    <img [src]="this.authService.currentUserData.avatarUrl" alt="Profilbild" class="profile-img"
+      (click)="profileService.toggleProfileDisplay()">
+    <!-- Click Event to open popup and edit profile -->
+    <img src="assets/icons/chevron-right-black.svg" alt="Chevron" class="chevron-icon"
+      (click)="profileService.toggleLogoutDisplay()">
+  </div>
+</header>
+
+
+<!-- Mobile  Header -->
+<header *ngIf="isMobileView" id="searchMobileDiv" class="mobile-header">
+  <div class="header">
+    <div class="logo">
+      @if (mobileService.isSidebarVisible) {
+      <img src="assets/logos/logo-DABubble.svg" alt="Logo">
+      } @else {
+      <div class="arrow-container" (click)="mobileService.toggleSidenav()">
+        <svg class="arrow-left" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+          fill="#000000">
+          <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+        </svg>
+      </div>
+      <img src="assets/logos/devspace-logo-complete.svg" alt="Logo">
+      }
+    </div>
+    <div (click)="profileService.toggleLogoutDisplay()" class="user-profile">
+      <img [src]="this.authService.currentUserData.avatarUrl" alt="Profilbild" class="profile-img">
+    </div>
+  </div>
+
+</header>
+
+<!-- Popup einfügen -->
+@if (profileService.showPopup) {
+<app-profile class="profile-container"></app-profile>
+}

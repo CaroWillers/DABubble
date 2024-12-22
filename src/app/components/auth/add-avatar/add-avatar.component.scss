@@ -1,0 +1,361 @@
+@import "../../../../mixins.scss";
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 10, "wght" 400, "GRAD" 0, "opsz" 14;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  @include dFlex($g: 30px, $jc: space-around);
+  font-size: 18px;
+  margin: 20px 0px;
+}
+
+header {
+  width: 100%;
+  @include dFlex($fd: row, $jc: space-between, $ai: flex-start);
+  position: relative;
+  top: 50px;
+  padding: 0px 75px;
+}
+
+.logo {
+  @include dFlex($fd: row, $g: 16px);
+  span {
+    font-size: 38px;
+    color: #000000;
+    font-weight: 500;
+    letter-spacing: -2px;
+  }
+}
+
+.text-container {
+  @include dFlex($ai: flex-end, $g: 20px);
+  a {
+    text-decoration: none;
+    color: $purple1;
+  }
+}
+
+.login-card {
+  background-color: white;
+  border-radius: 30px;
+  padding: 50px 60px;
+  max-width: 606px;
+  width: 100%;
+  box-shadow: 0px 2px 10px 0px #00000014;
+  text-align: center;
+  position: relative;
+  .back-arrow {
+    position: absolute;
+    left: 32px;
+    top: 45px;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    @include dFlex();
+    transition: all 125ms ease-in-out;
+    &:hover {
+      background-color: $bg-color;
+    }
+  }
+
+  h2 {
+    font-size: 46px;
+    color: $purple1;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 30px;
+  }
+
+  form {
+    @include dFlex();
+  }
+
+  .button-container {
+    @include dFlex($fd: row, $jc: flex-end, $g: 24px);
+  }
+
+  .storage-container {
+    width: 100%;
+    @include dFlex($fd: row, $jc: flex-start, $g: 24px);
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .storage-btn {
+    height: 49px;
+    padding: 12px 25px;
+    background-color: white;
+    border: 1px solid $purple2;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 25px;
+    color: $purple2;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+    &:hover {
+      background-color: #444df2bd;
+      color: white;
+    }
+  }
+
+  .next-btn {
+    padding: 12px 25px;
+    height: 49px;
+    background-color: $purple1;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+    &:hover {
+      background-color: #444df2bd;
+    }
+  }
+}
+
+.avatar-container {
+  width: 100%;
+  @include dFlex($g: 32px);
+  margin-bottom: 30px;
+  .picked-avatar {
+    @include dFlex();
+    border-radius: 100px;
+    height: 168px;
+    width: 168px;
+    border: 8px solid #e6e6e6;
+    transition: all 125ms ease-in-out;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 200px;
+    }
+    &:hover {
+      border-color: #eceefe;
+    }
+  }
+}
+
+.avatar-choosing-container {
+  @include dFlex($g: 16px);
+  width: 100%;
+  .name-and-span {
+    width: 100%;
+    h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .span {
+      font-size: 20px;
+      font-weight: 400;
+      width: 100%;
+      @include dFlex($ai: flex-start);
+    }
+  }
+  .available-avatars {
+    width: 100%;
+    @include dFlex($jc: space-between, $fd: row);
+    .img-container {
+      border: 4px solid transparent;
+      border-radius: 100px;
+      transition: all 125ms ease-in-out;
+      cursor: pointer;
+      @include dFlex();
+      img {
+        height: 64px;
+        width: 64px;
+      }
+      &:hover {
+        border-color: #eceefe;
+      }
+    }
+  }
+}
+
+footer {
+  @include dFlex($fd: row, $g: 16px);
+  position: relative;
+  .footer-anker {
+    padding: 10px 15px;
+    color: $purple1;
+    font-size: 18px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    transition: all 125ms ease-in-out;
+    &:hover {
+      border-color: grey;
+    }
+  }
+}
+
+@media (max-width: 1325px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: flex !important;
+  }
+
+  .main-container {
+    gap: 30px;
+    position: relative;
+    margin: 30px 0px;
+    font-size: 16px;
+  }
+
+  header {
+    position: relative;
+    justify-content: center;
+    padding: 0;
+    top: 0;
+  }
+  .text-container {
+    align-items: center;
+    button {
+      background-color: transparent;
+      &:hover {
+        color: $purple2;
+        transform: scale(1.015);
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .main-container {
+    padding: 0px 20px;
+  }
+
+  .privacy-container {
+    margin-bottom: 50px;
+    span {
+      text-align: start;
+    }
+  }
+  .storage-container {
+    width: 100%;
+    justify-content: center !important;
+    span {
+      display: none;
+    }
+  }
+
+  .storage-btn {
+    width: max-content;
+    padding: 12px 25px;
+    background-color: white;
+    border: 1px solid $purple2;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 25px;
+    color: $purple2;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+    &:hover {
+      background-color: #444df2bd;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 675px) {
+  .login-card {
+    padding: 35px 20px;
+    h2 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 17px;
+    }
+    .button-container {
+      justify-content: center;
+      gap: 20px;
+    }
+    .btn {
+      font-size: 16px;
+    }
+
+    .back-arrow {
+      position: absolute;
+      left: 20px;
+      top: 22px;
+      border-radius: 50px;
+      height: 40px;
+      width: 40px;
+      @include dFlex();
+      transition: all 125ms ease-in-out;
+      &:hover {
+        background-color: $bg-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 513px) {
+  .login-card {
+    .button-container {
+      flex-direction: column;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    .btn {
+      min-width: 145px;
+    }
+  }
+
+  .avatar-choosing-container {
+    @include dFlex($g: 16px);
+    width: 100%;
+    .name-and-span {
+      width: 100%;
+      h3 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .span {
+        font-size: 20px;
+        font-weight: 400;
+        width: 100%;
+        @include dFlex($ai: flex-start);
+      }
+    }
+    .available-avatars {
+      width: 100%;
+      @include dFlex($jc: space-around, $fd: row);
+      overflow-x: auto;
+      .img-container {
+        border: 4px solid transparent;
+        border-radius: 100px;
+        transition: all 125ms ease-in-out;
+        cursor: pointer;
+        @include dFlex();
+        img {
+          height: 48px;
+          width: 48px;
+        }
+        &:hover {
+          border-color: #eceefe;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+.direct-messages-class {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+
+  .channels-header-class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    .main-elements {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      margin-bottom: 30px;
+
+      img,
+      svg {
+        display: block;
+        width: 24px;
+        height: 24px;
+      }
+
+      .auto-svg{
+        width: auto;
+        height: auto;
+      }
+
+      /* Smooth transitions for hover effects */
+      svg path,
+      h2 {
+        transition: fill 0.3s ease-in-out, color 0.3s ease-in-out;
+      }
+
+      /* Hover effect for all elements */
+      &:hover {
+        svg path {
+          fill: #535af1; /* Arrow and account icon turn purple */
+        }
+
+        h2 {
+          color: #535af1; /* Text turns purple */
+        }
+      }
+
+      .toggle-arrow-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        svg {
+          transition: transform 0.3s ease-in-out, fill 0.3s ease-in-out; /* Smooth rotation and color transition */
+        }
+      }
+    }
+  }
+
+  .tree-list {
+    margin: 0;
+    margin-left: 20px;
+    padding: 0;
+    list-style: none;
+    gap: 10px;
+
+    @media (max-width: 950px) {
+      margin-top: -15px;
+      margin-left: 5px;
+    }
+
+    li {
+      .submenu-profile-container-class {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        padding: 8px 20px;
+        margin-bottom: 10px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #eceefe;
+          color: #535af1;
+        }
+
+        ///Roman edit
+        &:hover .submenu-profile-name-class {
+            color: #535af1;
+           
+        }
+
+
+        &.active {
+          background-color: #eceefe;
+
+          .submenu-profile-name-class {
+            color: #535af1;
+            font-weight: 600;
+          }
+        }
+
+        ///Roman edit ende
+
+        .profile-picture-wrapper {
+          position: relative; /* For status indicator positioning */
+          width: 40px;
+          height: 40px;
+
+          .submenu-profile-picture-class {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: white;
+            display: block;
+          }
+
+          .status-indicator {
+            position: absolute;
+            bottom: 1px;
+            right: 1px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid white; /* White border for the status indicator */
+            background-color: gray;
+            z-index: 1;
+
+            &.online {
+              background-color: #92c83e; /* Green for "Online" */
+            }
+
+            &.away,
+            &.offline {
+              background-color: #686868; /* Gray for "Away" and "Offline" */
+            }
+          }
+        }
+
+        .submenu-profile-name-class {
+          font-size: 16px;
+          font-weight: 400;
+          color: black;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+@import "../../../../mixins.scss";
+
+.desktop-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 16px;
+  background-color: $bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.logo {
+  @include dFlex($fd: row, $g: 12px);
+}
+
+.arrow-container {
+  height: auto;
+  cursor: pointer;
+}
+
+.arrow-left {
+  transform: rotate(180deg);
+}
+
+.searchbar-mobile {
+  display: none;
+}
+
+.search-bar-desktop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.search-bar-desktop input {
+  cursor: pointer;
+  width: 100%;
+  padding: 17.5px 45px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 42px;
+}
+
+.search-bar-desktop .search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  span {
+    font-size: 16px;
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+.user-profile .profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: white;
+  padding: 1px;
+}
+
+.user-profile .chevron-icon {
+  width: 20px;
+  transform: rotate(90deg);
+}
+
+//Search Dropdown
+.dropdown {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+//Profile Dropdown
+.profile-popup {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border-radius: 30px 0 30px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  gap: 15px;
+}
+
+.popup-button {
+  width: 222px;
+  height: 53px;
+  padding: 10px 70px;
+  border-radius: 100px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  background: white;
+  gap: 15px;
+}
+
+.popup-button:hover {
+  background-color: $bg-color;
+  color: $purple-text;
+}
+
+//Mobile Header
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding: 16px;
+  background: #edeefe;
+}

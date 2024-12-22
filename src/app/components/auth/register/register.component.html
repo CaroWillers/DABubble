@@ -1,0 +1,82 @@
+<div class="main-container">
+    <header>
+        <div class="logo">
+            <img src="assets/logos/logo-DABubble.svg" alt="DABubble Logo" />
+        </div>
+    </header>
+    <div class="login-card">
+        <a (mouseover)="authStyle.backArrowPurple()" (mouseleave)="authStyle.backArrowBlack()"
+            (click)="authStyle.backArrowBlack()" [routerLink]="['/login']" class="back-arrow">
+            <img [src]="authStyle.backArrowSvg" alt="arrow back">
+        </a>
+        <h2>Konto erstellen</h2>
+        <p>
+            Mit deinem Namen und deiner E-Mail-Adresse hast du dein neues DABubble-Konto.
+        </p>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" autocomplete="on">
+            <div class="input-group">
+                <img [src]="authStyle.nameSvg" alt="person-icon">
+                <label for="name"></label>
+                <input formControlName="name" id="name" name="name" type="text" minlength="2" required
+                    autocomplete="username" [placeholder]="authStyle.placeholderName" autocomplete="name"
+                    (focus)="authStyle.focusNameInput()" (blur)="authStyle.blurNameInput('register')" />
+                @if (profileForm.controls['name'].invalid && profileForm.controls['name'].touched ) {
+                <span class="error-message">Bitte schreiben Sie hier Ihren Namen</span>
+                }
+
+            </div>
+            <div class="input-group">
+                <img [src]="authStyle.mailSvg" alt="mail-icon">
+                <label for="email"></label>
+                <input formControlName="email" id="email" name="email" type="email" minlength="5" required
+                    autocomplete="email" [placeholder]="authStyle.placeholderMail" autocomplete="email" required
+                    pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" (focus)="authStyle.focusMailInput()"
+                    (blur)="authStyle.blurMailInput('register')" />
+                @if (profileForm.controls['email'].invalid && profileForm.controls['email'].touched ) {
+                <span class="error-message">Bitte geben Sie eine gültige E-Mail-Adresse ein</span>
+                }
+            </div>
+            <div class="input-group">
+                <img [src]="authStyle.passwordSvg" alt="pw-icon">
+                <label for="password"><i class="fas fa-lock"></i></label>
+                <input formControlName="password" id="password" name="password" type="password"
+                    autocomplete="one-time-code" min="7" required [placeholder]="authStyle.placeholderPw" required
+                    (focus)="authStyle.focusPwInput()" (blur)="authStyle.blurPwInput('register')" />
+                @if (profileForm.controls['password'].invalid && profileForm.controls['password'].touched) {
+                <span class="error-message">
+                    Bitte geben Sie ein Passwort mit mindestens 8 Zeichen ein.
+                </span>
+                }
+
+
+            </div>
+            <div class="privacy-container">
+                <label (click)="authStyle.toggleCheckbox($event, checkbox)">
+                    <div class="checkbox-container">
+                        <input formControlName="privacyPolicy" id="checkbox" name="checkbox" #checkbox type="checkbox"
+                            name="checkbox" required />
+                    </div>
+                    <span>Ich stimme der <span class="privacy-span"
+                            [routerLink]="['/privacy-policy']">Datenschutzerklärung</span>
+                        zu.</span>
+                    @if (profileForm.controls['privacyPolicy'].invalid && profileForm.controls['privacyPolicy'].touched
+                    ) {
+                    <span class="error-message">Bitte akzeptieren sie die Datenschutzerklärung</span>
+                    }
+                </label>
+            </div>
+            <div class="button-container">
+                @if (!profileForm.valid && !this.authService.isRegistering) {
+                <button class="next-btn invalid btn">Weiter</button>
+                } @else {
+                <button type="submit" class="next-btn btn" [disabled]="this.authService.isRegistering">Weiter</button>
+                }
+            </div>
+        </form>
+
+    </div>
+    <footer>
+        <a [routerLink]="['/imprint']" class="footer-anker">Impressum</a>
+        <a [routerLink]="['/privacy-policy']" class="footer-anker">Datenschutz</a>
+    </footer>
+</div>

@@ -1,0 +1,22 @@
+<!-- Desktop and Mobile View for Popups -->
+<div class="popup-overlay" *ngIf="popupType" (click)="closePopupVisibility()">
+  <ng-container [ngSwitch]="popupType">
+    <!-- Create Channel Popup -->
+    <app-create-channel
+      *ngSwitchCase="'createChannel'"  
+      (click)="$event.stopPropagation()"
+      (createChannel)="handleAction($event)"
+      (closePopup)="closePopup()"
+    ></app-create-channel>
+
+    <!-- Add Members Popup -->
+    <app-add-members
+      *ngSwitchCase="'addMembers'"
+      [data]="popupData"
+      [users$]="users$"  
+      (click)="$event.stopPropagation()"
+      (addMembers)="handleAction($event)"
+      (closePopup)="closePopup()"
+    ></app-add-members>
+  </ng-container>
+</div>
