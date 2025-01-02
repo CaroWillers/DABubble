@@ -13,8 +13,6 @@ yarn-error.log
 
 # Api Key
 /src/environments
-/src/app/app.config.ts
-
 
 # IDEs and editors
 .idea/
