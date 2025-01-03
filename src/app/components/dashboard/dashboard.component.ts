@@ -14,7 +14,7 @@ import { ChatService } from '../../core/services/chat.service';
 import { SearchService } from '../../core/services/search.service';
 import { MobileControlService } from '../../core/services/mobile-control.service';
 import { onAuthStateChanged } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
     SidenavComponent,
     ChatComponent,
     ThreadBarComponent,
-    ThreadBarComponent,
+    ThreadBarComponent, 
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
